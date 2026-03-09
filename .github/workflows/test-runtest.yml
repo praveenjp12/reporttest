@@ -37,7 +37,7 @@ jobs:
   # ---------------------------------------------------------------------------
   invoke-reusable:
     name: Call runtest.yml
-    uses: ./.github/wokflows/runtest.yml
+    uses: ./.github/workflows/runtest.yml
     with:
       folderName:          ${{ github.event.inputs.folderName          || 'cypress/e2e' }}
       reportFolderName:    ${{ github.event.inputs.reportFolderName    || 'reports' }}
