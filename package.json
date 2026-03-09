@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "report": "cypress-json-html-reporter generate-html"
+  },
+  "devDependencies": {
+    "cypress": "^15.11.0",
+    "cypress-json-html-reporter": "^1.0.1"
+  }
+}
