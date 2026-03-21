@@ -4,6 +4,6 @@
   },
   "devDependencies": {
     "cypress": "^15.11.0",
-    "cypress-json-html-reporter": "^1.0.1"
+    "cypress-json-html-reporter": "^1.0.2"
   }
 }
