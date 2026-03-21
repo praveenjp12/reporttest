@@ -5,7 +5,7 @@ name: Cypress Reusable Test Workflow
 #
 #   jobs:
 #     run-tests:
-#       uses: <org>/<this-repo>/.github/workflows/runtest.yml@main
+#       uses: praveenjp12/cypress-parallel@v1.0.0
 #       with:
 #         folderName: cypress/e2e
 #         reportFolderName: reports
@@ -83,6 +83,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Checkout workflow repository
+        uses: actions/checkout@v4
+        with:
+          repository: praveenjp12/reporttest
+          path: .workflow-repo
+          ref: main # Target latest main or an explicit tag
+
       # Cache node_modules across runs keyed on package-lock.json
       - name: Cache node modules
         uses: actions/cache@v4
@@ -101,7 +108,7 @@ jobs:
       - name: Resolve spec files for this container
         id: specs
         run: |
-          SPEC=$(node index.js \
+          SPEC=$(node .workflow-repo/index.js \
             ${{ matrix.container }} \
             ${{ inputs.numberOfParallel }} \
             ./${{ inputs.folderName }})
